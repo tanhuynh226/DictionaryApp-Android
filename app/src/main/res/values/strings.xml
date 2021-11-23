@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Dictionary</string>
+    <string name="prompt">Enter Your Word</string>
+    <string name="frq_word_one">Frequent Word 1</string>
+    <string name="frq_word_two">Frequent Word 2</string>
+    <string name="frq_word_three">Frequent Word 3</string>
+    <string name="find">FIND</string>
+    <string name="new_word">NEW WORD</string>
+    <string name="remove">REMOVE</string>
+
+    <string name="add">ADD</string>
+    <string name="clear">CLEAR</string>
+    <string name="home_page">HOME PAGE</string>
+    <string name="word">Word</string>
+    <string name="frequency">Frequency</string>
+    <string name="meaning">Meaning</string>
+
+</resources>
