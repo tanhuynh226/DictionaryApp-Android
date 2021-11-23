@@ -6,6 +6,7 @@
 * User can add/remove words along with their frequencies and definitions
 * User can check if a word exists in the dictionary and retrieve its meanings
 * Auto-complete feature that displays the most frequent words based on a prefix
+* Responsive UI
 
 ### Previews:
 <p align="center"><img src="https://i.imgur.com/A6lciMF.png"></p>

@@ -14,7 +14,7 @@ public class NewWordActivity extends AppCompatActivity {
     private EditText frequency;
     private EditText meaning;
 
-    // Dictionary Hash Table
+    // Dictionary Hash Map
     public static LinkedHashMap<String, String> dict = new LinkedHashMap<>();
     // Frequency Array List
     public static ArrayList<Integer> frequencyList = new ArrayList<>();
@@ -45,7 +45,7 @@ public class NewWordActivity extends AppCompatActivity {
 
     // Add Button
     public void addButton(View view){
-        if (!dict.containsKey(word)) {
+        if (!dict.containsKey(word.getText().toString())) {
             dict.put(word.getText().toString(), meaning.getText().toString());
             if (frequency.getText().toString().equals(""))
                 frequencyList.add(1);
