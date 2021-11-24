@@ -1,10 +1,8 @@
 package com.example.dictionary;
 
 import android.content.Intent;
-import android.os.Build;
 import android.view.View;
 import android.widget.EditText;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.ArrayList;
