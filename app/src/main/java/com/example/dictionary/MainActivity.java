@@ -18,13 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private String word;
 
     // Variables used for autocomplete method
-    private ArrayList<Integer> indexes = new ArrayList<>();
     private ArrayList<Integer> frequencies = new ArrayList<>();
     private ArrayList<String> keySet = new ArrayList<>();
     private int count;
-
-    // Object from other class to be used for accessing the hash map and the frequency list
-    NewWordActivity obj = new NewWordActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,23 +45,26 @@ public class MainActivity extends AppCompatActivity {
     public void findButton(View view){
         word = input.getText().toString();
 
-        if (obj.dict.containsKey(word))
-            body.setText(obj.dict.get(word));
+        if (NewWordActivity.dict.containsKey(word))
+            body.setText(NewWordActivity.dict.get(word));
 
         if (!word.equals(""))
             autoComplete(word);
+
+        System.out.println(NewWordActivity.dict.keySet());
+        System.out.println(NewWordActivity.frequencyList);
     }
 
     // Remove Button
     public void removeButton(View view){
         count = 0;
-        if (obj.dict.containsKey(word) && !word.equals("")) {
-            obj.dict.remove(word);
-            for (String key : obj.dict.keySet()) {
+        if (NewWordActivity.dict.containsKey(word) && !word.equals("")) {
+            for (String key : NewWordActivity.dict.keySet()) {
                 if (key.equals(word))
-                    obj.frequencyList.remove(count);
+                    NewWordActivity.frequencyList.remove(count);
                 count++;
             }
+            NewWordActivity.dict.remove(word);
         }
         input.setText("");
         body.setText("");
@@ -86,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
         frq_three.setText("");
 
         // Store frequencies and keys of words that starts with the input
-        for (String key : obj.dict.keySet()){
+        for (String key : NewWordActivity.dict.keySet()){
             if (key.startsWith(word)) {
-                frequencies.add(obj.frequencyList.get(count));
+                frequencies.add(NewWordActivity.frequencyList.get(count));
                 keySet.add(key);
             }
             count++;

@@ -1,8 +1,10 @@
 package com.example.dictionary;
 
 import android.content.Intent;
+import android.os.Build;
 import android.view.View;
 import android.widget.EditText;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class NewWordActivity extends AppCompatActivity {
     private EditText word;
     private EditText frequency;
     private EditText meaning;
+    private int count;
 
     // Dictionary Hash Map
     public static LinkedHashMap<String, String> dict = new LinkedHashMap<>();
@@ -45,8 +48,20 @@ public class NewWordActivity extends AppCompatActivity {
 
     // Add Button
     public void addButton(View view){
-        if (!dict.containsKey(word.getText().toString())) {
-            dict.put(word.getText().toString(), meaning.getText().toString());
+        count = 0;
+        if (!word.getText().toString().equals("") && !meaning.getText().toString().equals("")) {
+            if (dict.containsKey(word.getText().toString())){ // Overwrite existing word with new frequency and definition
+                for (String key : dict.keySet()) {
+                    if (key.equals(word.getText().toString()))
+                        frequencyList.remove(count);
+                    count++;
+                }
+                dict.remove(word.getText().toString());
+                dict.put(word.getText().toString(), meaning.getText().toString());
+            }
+            else if (!dict.containsKey(word.getText().toString())) // Add new word
+                dict.put(word.getText().toString(), meaning.getText().toString());
+
             if (frequency.getText().toString().equals(""))
                 frequencyList.add(1);
             else
